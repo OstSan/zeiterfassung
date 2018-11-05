@@ -34,6 +34,9 @@ Open Source
 Programmierer
 ------------------------
 Manuel Osterholzer
-Christian Wegner 
+
+Christian Wegner
+ 
 Daniel Serazin
+
 Andre Bogdan https://andre-bogdan.github.io/
