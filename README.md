@@ -36,4 +36,4 @@ Programmierer
 Manuel Osterholzer
 Christian Wegner 
 Daniel Serazin
-Andre Bogdan
+Andre Bogdan https://andre-bogdan.github.io/
