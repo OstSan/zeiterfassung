@@ -9,7 +9,7 @@ Das Programm soll die Einsatzplanung von Mitarbeitern ermoeglichen
 und die tatsaechliche gleistete Arbeitszeit erfassen und entsprechende
 Auswertungen ausgeben.
 
-Umsetzung in PHP und MySql
+Umsetzung in PHP, HTML, CSS und MySql
 
 Seitenzugriffsschutz / Adminbereich / Userbereich
 
@@ -50,8 +50,8 @@ Programmierer
 ------------------------
 Manuel Osterholzer
 
-Christian Wegner
+Christian Wegner https://github.com/chwegner
  
 Daniel Serazin
 
-Andre Bogdan https://andre-bogdan.github.io/
+Andre Bogdan https://github.com/andre-bogdan
