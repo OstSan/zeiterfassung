@@ -1,0 +1,47 @@
+<?php 
+
+//prueft die Eingabe und gibt 0 fuer io und 1 fuer nio aus
+
+function eingabe_check($eingabe_str, $art_str) 
+	{
+		$eingabe = $eingabe_str;
+		$art = $art_str;
+		
+		if ($art == "text")
+			{
+				$pattern = "/^[^\<\>\(\)\{\}]+$/";
+			}
+			
+		elseif ($art == "zahl")
+			{
+				$pattern = "/^[1-9]{1}$|^1[1-9]$|^2[0-4]$/";
+			}
+			
+		elseif ($art == "email")
+			{
+				$pattern = "/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,4}/";
+			}
+			
+		elseif ($art == "plz")
+			{
+				$pattern = "/^[0-9]{5}$/";
+			}
+			else
+			{
+				$pattern = "";
+			}			
+			
+		if (preg_match($pattern, $eingabe))
+			{
+				$erg = 0;
+			}
+			else
+			{
+				$erg = 1;
+			}
+			 
+		return $erg;
+		
+	}
+
+?>

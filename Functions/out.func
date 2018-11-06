@@ -1,0 +1,12 @@
+<?php
+
+//Ausgabe der Seite
+function out($template_head, $template_body, $template_footer, $params = array())
+{
+  extract($params);
+  include $template_head;
+  include $template_body;
+  include $template_footer;
+}
+
+?>

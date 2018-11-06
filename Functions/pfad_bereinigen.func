@@ -1,0 +1,38 @@
+<?php
+//Funktion entfernt Leerzeichen, Umlaute etc aus dem Pfad
+
+function pfad_bereinigen($str)
+{
+$ers = array(
+
+        ' ' => '_',
+        '&Auml;' => 'Ae',
+        '&Ouml;' => 'Oe',
+        '&Uuml;' => 'Ue',
+        '&auml;' => 'ae',
+        '&ouml;' => 'oe',
+        '&uuml;' => 'ue',
+        '&szlig;' => 'ss',
+        '%C4' => 'Ae',
+        '%D6' => 'Oe',
+        '%DC' => 'Ue',
+        '%E4' => 'ae',
+        '%F6' => 'oe',
+        '%FC' => 'ue',
+        '%DF' => 'ss',
+        'Ä' => 'Ae',
+        'ä' => 'ae',
+        'Ü' => 'Ue',
+        'ü' => 'ue',
+        'Ö' => 'Oe',
+        'ö' => 'oe',
+        'ß' => 'ss',
+        '+' => '_'
+);
+
+    $ausgabe = strtr($str,$ers);
+    
+return $ausgabe;
+}
+
+?>

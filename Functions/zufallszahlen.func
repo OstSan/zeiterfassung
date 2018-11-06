@@ -1,0 +1,29 @@
+<?php
+//Funktion generiert eine bestimmbare Anzahl ($i) Zufallszahlen aus $k Zahlen
+
+function zufallszahlen()
+{
+
+$anzahl = 4;
+$gesamt = 4;
+
+//array fuer die zahlen initialisieren
+$bild_nr = array();
+
+for ($j = 0; $j < $gesamt; $j++)
+{
+	$bild_nr[$j] = $j + 1;
+}
+
+//array mischen
+shuffle($bild_nr);
+
+//ersten $i Zahlen des arrays separieren
+$bild_nr = array_slice($bild_nr, 0, $anzahl);
+
+//Ergebnis ausgeben
+return $bild_nr;
+
+}
+
+?>
