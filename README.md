@@ -26,17 +26,24 @@ Userbereich:
 Funktionsweise
 ------------------------
 index.php:
+
 Zuerst wird immer die index.php Datei aufgerufen.
 Durch die index.php werden die config.php geladen und global noetige Funktionen.
 In Abhaengikeit der uebergebenen Argumente werde die entsprechenden Controller-Dateien,
 und ueber die Controller die notwendigen Content-Dateien, Template-Dateien 
 und die Style-Anweisungen fuer die Ausgabe geladen und fuer die Ausgabe zusammengebaut.
+
 Controller-Dateien:
+
 Zu jeder einzelnen Seite existiert ein Controller. Dieser Controller beinhaltet
 die Programm-Logik fuer diese Seite.
+
 Content-Dateien:
+
 Zu jeder einzelnen Seite existiert eine Content-Datei.
+
 Template-Dateien:
+
 Die Template-Dateien beinhalten die Strucktur der Seite. Jede Seite gliedert sich in
 head, body, footer mit der zugehoerigen Temlpate-Datei.
 
