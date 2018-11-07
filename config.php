@@ -1,11 +1,12 @@
 <?php 
+
 //Projektname
 $projekt_name = "zeiterfassung";
 
-//Datenbank
-
-
-// Variable fuer den Dateipfad zur index.php (muss in der .htaccess angepasst werden)
+//Datenbankkonfiguration
+//$db_host = "localhost";
+//$db_user = "root";
+//$db_psw = "";
 
 //erlaubte Seiten
 $controller_liste = array(

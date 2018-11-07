@@ -20,7 +20,7 @@ body {
   to { padding: 0; }
 }
 
-h1 {font-size:3.0em; color:#888;}
+h1 {font-size:2.0em; color:#888;}
 h2 {font-size:1.5em; color:#888;}
 h3 {font-size:1.0em; color:#888;}
 h4 {font-size:1.0em; color:#888;}
@@ -225,67 +225,6 @@ hr.style01 {
 		/*border:0.1em solid black;*/
 	}
 
-	/* slider */
-	#slider-wrapper {
-		position:relative;
-		width: 90%;
-		height:auto;
-		margin:0.0em auto;
-		margin-top:6.0;
-		}
-
-	#slider-gallery {
-		position:relative;
-		width: 100%;
-		height: auto;
-		margin:0.0em auto;
-		overflow: hidden;
-		background-image: url('../Pics/slider/bild_1.jpg');
-		background-size: 100% 100%;
-		background-repeat: no-repeat;
-	}
-
-	figure { margin: 0; }
-
-	figure.slider {
-		position: relative;
-		width: 500%;
-		font-size: 0;
-		animation: 20s slidy infinite;
-	}
-
-	figure.slider figure {
-		width: 20%;
-		height: auto;
-		display: inline-block;
-		position: inherit;
-	}
-
-	figure.slider img {
-		width: 100%;
-		height: auto;
-	}
-
-	figure.slider figure figcaption {
-		position: absolute;
-		bottom: 0;
-		background: rgba(0,0,0,0.3);
-		color: #fff;
-		width: 90%;
-		font-size: 1.2rem;
-		padding: 2% 10% 2% 0%;
-		text-align:right;
-	}
-
-	@keyframes slidy{
-	   0%,10%    { margin-left: 0%;    }
-	  20%,30%    { margin-left: -100%; }
-	  40%,50%    { margin-left: -200%; }
-	  60%,70%    { margin-left: -300%; }
-	  80%,90%    { margin-left: -400%; }
-	  100%   { margin-left: -500%; }
-	}
-	/* Ende slider */
 
 	#content-galerie {
 		position:relative;
@@ -375,7 +314,7 @@ hr.style01 {
 		top:0.0em;
 		left:0.0em;
 		margin-top:0.0em;
-		background-color:#fff;
+		background-color:#ccc;
 		text-align:center;
 		border-bottom:0.2em solid #888;
 		z-index:1;
