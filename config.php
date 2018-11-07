@@ -1,39 +1,34 @@
 <?php 
+//Projektname
+$projekt_name = "zeiterfassung";
+
+//Datenbank
+
 
 // Variable fuer den Dateipfad zur index.php (muss in der .htaccess angepasst werden)
 
 //erlaubte Seiten
 $controller_liste = array(
 						"error_404",//0	
-						"startseite",//1
-						"impressum",//2
-						"kontakt",//3
-						"datenschutz",//4
-						"malerei",//5
-						"grafik",//6
-						"plastik-skulptur-objekt",//7
-						"vita"//8
+						"login",//1
+						"admin",//2
+						"user",//3
 						);
 
 //Name der Links
 $namen_liste = array(	
 						"error 404",//0
-						"Startseite",//1
-						"Impressum",//2
-						"Kontakt",//3
-						"Datenschutzhinweise",//4
-						"Malerei",//5
-						"Grafik",//6
-						"Plastik/Skulptur/Objekt",//7
-						"Vita"//8
+						"LogIn",//1
+						"Administrationsbereich",//2
+						"Nutzerbereich",//3
 						);
 						
 //Konstanten definieren
 //offline
-define("SERVER_ROOT" , "/html_www.arnhild-koppel.de");
-define("SITE_ROOT" , "/html_www.arnhild-koppel.de");
+define("SERVER_ROOT" , "/zeiterfassung");
+define("SITE_ROOT" , "/zeiterfassung");
 //online
 //define("SERVER_ROOT" , "/");
-//define("SITE_ROOT" , "http://wwww.dammers-webundwerbung.de");
+//define("SITE_ROOT" , "http://www.zeiterfassung.de");
 
 ?>
