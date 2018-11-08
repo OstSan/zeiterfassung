@@ -61,4 +61,4 @@ Manuel Osterholzer
  
 Daniel Serazin
 
-Andre Bogdan https://github.com/andre-bogdan
+<a href="https://github.com/andre-bogdan">Andre Bogdan</a>
