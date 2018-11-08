@@ -57,8 +57,8 @@ Programmierer
 ------------------------
 Manuel Osterholzer
 
-Christian Wegner https://github.com/chwegner
+<a href="https://github.com/chwegner">Christian Wegner</a> 
  
 Daniel Serazin
 
-Andre Bogdan https://github.com/andre-bogdan
+<a href="https://github.com/andre-bogdan">Andre Bogdan</a>
