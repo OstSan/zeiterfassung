@@ -55,7 +55,7 @@ Open Source
 
 Programmierer
 ------------------------
-Manuel Osterholzer
+<a href="https://github.com/OstSan">Manuel Osterholzer</a> 
 
 <a href="https://github.com/chwegner">Christian Wegner</a> 
  
