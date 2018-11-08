@@ -48,6 +48,7 @@ Die Template-Dateien beinhalten die Strucktur der Seite. Jede Seite gliedert sic
 head, body, footer mit der zugehoerigen Temlpate-Datei.
 
 Datenbankfunktionen:
+
 Die Datenbankfunktionen befinden sich in: /Functions/datenbank.class.php
 Die Dokumentation zur Benutzung der Funktionen beinhaltet die Datei
 
