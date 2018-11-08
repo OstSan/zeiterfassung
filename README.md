@@ -55,7 +55,7 @@ Die Dokumentation zur Benutzung der Funktionen beinhaltet die Datei
 
 Lizenz
 ------------------------
-Open Source
+<a href="LICENSE">Link zur LICENSE</a>
 
 
 Programmierer
