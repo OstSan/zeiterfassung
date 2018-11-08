@@ -57,7 +57,7 @@ Programmierer
 ------------------------
 Manuel Osterholzer
 
-Christian Wegner https://github.com/chwegner
+<a href="https://github.com/chwegner">Christian Wegner</a> 
  
 Daniel Serazin
 
