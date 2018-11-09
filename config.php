@@ -19,17 +19,23 @@ PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 //erlaubte Seiten
 $controller_liste = array(
 						"error_404",//0	
-						"login",//1
-						"admin",//2
-						"user",//3
+						"start",//1
+						"kommt",//2
+						"geht",//3
+						"login",//4
+						"admin",//5
+						"user",//6
 						);
 
 //Name der Links
 $namen_liste = array(	
 						"error 404",//0
-						"LogIn",//1
-						"Administrationsbereich",//2
-						"Nutzerbereich",//3
+						"Start",//1
+						"Kommt",//2
+						"Geht",//3
+						"LogIn",//4
+						"Administrationsbereich",//5
+						"Nutzerbereich",//6
 						);
 						
 //Konstanten definieren

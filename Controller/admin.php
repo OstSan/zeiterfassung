@@ -13,7 +13,7 @@ else
 //Content-Datei nicht vorhanden! 
 		die("Content ist nicht vorhanden!");
 	}
-
+/*
 //Content Aktuell laden
 if (file_exists("Content/aktuell.php"))
 	{
@@ -24,13 +24,13 @@ else
 		//Content-Datei nicht vorhanden! 
 		die('Content Aktuell ist nicht vorhanden!');
 	}
-
-// Nummer fuer Titelbild erzeugen	
-$bilder = zufallszahlen();
-$nr = $bilder[0];
+*/
 
 
 //Parameter laden
+
+//Projektname
+$parameter["projekt_name"] = $projekt_name;
 
 //Links
 $parameter["links"] = $controller_liste;
@@ -42,22 +42,16 @@ $parameter["links_namen"] = $namen_liste;
 $parameter["titel"] = $titel;
 
 //aktuell
-$parameter["aktuell"] = $aktuell;
+//$parameter["aktuell"] = $aktuell;
 
 //aktuell Ueberschrift
-$parameter["aktuell_headline"] = $aktuell_headline;
+//$parameter["aktuell_headline"] = $aktuell_headline;
 
 //Seiteninhalt
 $parameter["inhalt"] = $inhalt;
 
 //Seiteninhalt Ueberschrift
 $parameter["inhalt_headline"] = $inhalt_headline;
-
-//Zufallszahl fuer Titelbild
-$parameter["nr"] = $nr;
-
-//Foto
-//$parameter["foto"] = $foto;
 
 //Pfad zum Template
 if (file_exists("Templates/template_head.tpl"))
@@ -70,14 +64,14 @@ else
 		die("Template 'head' ist nicht vorhandern!");
 	}
 	
-if (file_exists("Templates/template_body.tpl"))
+if (file_exists("Templates/template_body_start.tpl"))
 	{
-		$template_body = "Templates/template_body.tpl";
+		$template_body = "Templates/template_body_start.tpl";
 	}
 else
 	{
 		//Template-Datei nicht vorhanden! 
-		die("Template 'body' ist nicht vorhandern!");
+		die("Template 'body_start' ist nicht vorhandern!");
 	}
 	
 if (file_exists("Templates/template_footer.tpl"))

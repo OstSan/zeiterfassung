@@ -49,34 +49,45 @@ $seiten_erlaubt = $controller_liste;
 $seiten_namen = $namen_liste;
 
 //Seitenanfrage auswerten
+//Anfrage einlesen
+$url = $_SERVER["REQUEST_URI"];
+
+//Verzeichnis aus url entfernen
+$url = str_replace( SERVER_ROOT, "", $url);
+
+//ueberfluessige / am Anfang und Ende entfernen
+$url = trim($url,"/");
+
+//url in Parameter splitten
+@list($arg1 , $arg2 , $arg3) = explode("/", $url);
+
 //Parameter ueberpruefen und Variablen zuordnen
 //erster Seitenaufruf
-if (!isset($_GET["seite"]))
+if (empty($arg1))
 {
+	//1.Fall: erster Seitenaufruf 
 	$key = 1;
 	$controller = $controller_liste[$key];
 }
 else
 {
-	//Seitenaufruf mit Argument
-	
-	if ((isset($_GET["seite"])) && (in_array($_GET["seite"],$seiten_erlaubt)))
+	//2.Fall: Seitenaufruf mit Argument
+	if (in_array($arg1,$seiten_erlaubt))
 	{
-		$key = array_search($_GET["seite"],$seiten_erlaubt);
+		$key = array_search($arg1,$seiten_erlaubt);
 		$controller = $seiten_erlaubt[$key];
 	}
 	else
 	{
-		//3. Fall: Keine erlaubte Seite - Fehlerseite ausgeben
+	//3. Fall: Keine erlaubte Seite - Fehlerseite ausgeben
 		$key = 0;
-		$controller = $seiten_erlaubt[$key];
+		$controller = "error_404";
 	}
 }
 
 //Ausgabe testen
-/*
-echo $controller;
-*/
+//echo $controller;
+
 
 //Controller laden
 $controller_pfad = "Controller/".$controller.".php";
