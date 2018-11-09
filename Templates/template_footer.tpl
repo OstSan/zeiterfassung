@@ -9,6 +9,8 @@
 				<a class='a2' href='https://github.com/OstSan' title='OstSan'>Ostsan</a>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a class='a2' href='https://github.com/Chwegner' title='Chwegner'>Chwegner</a>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a class='a2' href='https://github.com/andre-bogdan' title='andre-bogdan'>andre-bogdan</a>
 			</div>
 			<!-- Ende footer -->
 			
