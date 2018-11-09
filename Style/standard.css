@@ -32,10 +32,15 @@ a:visited {font-size:2.0em;font-weight:bold;text-decoration:none;color:#fff;}
 a:hover {font-size:2.0em;font-weight:bold;text-decoration:none;color:#000;}
 a:active {font-size:2.0em;font-weight:bold;text-decoration:none;color:#000;}
 
-a.a2:link {font-size:1.0em;font-weight:bold;text-decoration:none;color:#888;}
-a.a2:visited {font-size:1.0em;font-weight:bold;text-decoration:none;color:#888;}
+a.a2:link {font-size:1.0em;font-weight:bold;text-decoration:none;color:#fff;}
+a.a2:visited {font-size:1.0em;font-weight:bold;text-decoration:none;color:#fff;}
 a.a2:hover {font-size:1.0em;font-weight:bold;text-decoration:none;color:#000;}
 a.a2:active {font-size:1.0em;font-weight:bold;text-decoration:none;color:#000;}
+
+a.a3:link {font-size:1.0em;font-weight:bold;text-decoration:none;color:#888;}
+a.a3:visited {font-size:1.0em;font-weight:bold;text-decoration:none;color:#888;}
+a.a3:hover {font-size:1.0em;font-weight:bold;text-decoration:none;color:#000;}
+a.a3:active {font-size:1.0em;font-weight:bold;text-decoration:none;color:#000;}
 
 a{
 	color:#fff;
@@ -86,6 +91,19 @@ img {
 	height:auto;
 	max-width:100%;
 	}
+	
+form {
+   background-color: #fff; 
+   width: 400px; /* Breite des Formulars */
+   margin: 0 auto;
+   padding: 20px; 
+   border: 1px solid #8c8c8c;
+}
+
+form label { 
+   display: block; /* Beschriftung auf eigener Zeile */
+   cursor: pointer;  /* Mauszeiger wird zur Hand */
+}
 
 hr.style01 {
 	border: 0;
@@ -282,6 +300,8 @@ hr.style01 {
 		top:0.0em;
 		left:0.0em;
 		margin-top:0.0em;
+		padding-top: 1.0em;
+		line-height:2.0em;
 		background-color:#ccc;
 		text-align:center;
 		border-bottom:0.2em solid #888;
@@ -378,10 +398,11 @@ hr.style01 {
 
 	#footer {
 		clear:both;
-		position:relative;
+		position:fixed;
 		width:100%;
 		height:4.0em;
-		margin-top:1.0em;
+		left:0.0em;
+		bottom:0.0em;
 		background-color:#888;
 		text-align:center;
 		border-top:0.2em solid #888;

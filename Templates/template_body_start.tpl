@@ -5,7 +5,7 @@
 	
 		<!-- top-wrapper -->
 		<div id="top-wrapper">
-			<h1><?php echo $projekt_name; ?></h1>
+			<a href='<?php echo SITE_ROOT."/".$links[1]; ?>' title='<?php echo $links_namen[1]; ?>'><?php echo $projekt_name; ?></a>
 		</div>
 		<!-- Ende top-wrapper -->
 
@@ -27,7 +27,7 @@
 			
 			<br /><br />
 			
-			<a class='a2' href='<?php echo SITE_ROOT."/".$links[4]; ?>' title='<?php echo $links_namen[4]; ?>'><?php echo $links_namen[4]; ?></a>
+			<a class='a3' href='<?php echo SITE_ROOT."/".$links[4]; ?>' title='<?php echo $links_namen[4]; ?>'><?php echo $links_namen[4]; ?></a>
 			
 		</div>
 		<!-- Ende content-center -->

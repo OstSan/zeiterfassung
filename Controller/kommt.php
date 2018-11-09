@@ -64,9 +64,9 @@ else
 		die("Template 'head' ist nicht vorhandern!");
 	}
 	
-if (file_exists("Templates/template_body_start.tpl"))
+if (file_exists("Templates/template_body_login.tpl"))
 	{
-		$template_body = "Templates/template_body_start.tpl";
+		$template_body = "Templates/template_body_login.tpl";
 	}
 else
 	{
