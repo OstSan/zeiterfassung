@@ -11,6 +11,8 @@
 				<a class='a2' href='https://github.com/Chwegner' title='Chwegner'>Chwegner</a>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<a class='a2' href='https://github.com/andre-bogdan' title='andre-bogdan'>andre-bogdan</a>
+				                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a class='a2' href='https://github.com/dserazin' title='andre-bogdan'>dserazin</a>
 			</div>
 			<!-- Ende footer -->
 			

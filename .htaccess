@@ -1,0 +1,13 @@
+RewriteEngine On
+
+#RewriteCond %{HTTP_HOST} ^url.de [NC]
+#RewriteRule ^(.*)$ http://www.url.de/$1 [L,R=301]
+
+#online
+#RewriteBase /
+#offline
+RewriteBase /zeiterfassung
+RewriteRule ^\.htaccess$ - [F]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L,QSA]
