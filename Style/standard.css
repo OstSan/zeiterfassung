@@ -78,6 +78,20 @@ a{
     display: inline-block;
     font-size: 25px;
 }
+
+.button_yellow {
+	width:200px;
+	height:75px;
+    background-color: #fc6;
+    border: none;
+    color: white;
+    padding: 1.0em;
+    text-align: center;
+    text-decoration: none;
+	line-height:2.0em;
+    display: inline-block;
+    font-size: 25px;
+}
 	
 p {
 	text-align:justify;
