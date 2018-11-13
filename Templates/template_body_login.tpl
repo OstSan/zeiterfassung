@@ -5,7 +5,8 @@
 	
 		<!-- top-wrapper -->
 		<div id="top-wrapper">
-			<h1><?php echo $projekt_name; ?></h1>
+			<a href='<?php echo SITE_ROOT."/".$links[1]; ?>' title='<?php echo $links_namen[1]; ?>'><?php echo $projekt_name; ?></a>
+			
 		</div>
 		<!-- Ende top-wrapper -->
 		
@@ -19,21 +20,24 @@
 		<!-- Ende content-head -->
 		
 		<!-- content-left -->
-		<div id="content-left">
+		<div id="content-center">
 			
+			<p class="p1">
 			<h2><?php echo $inhalt_headline; ?></h2>
-					
+			</p>
+			<p class="p1">
 			<?php echo $inhalt; ?>
+			</p>
 			
-			<form action="meine.php" method="post">
-
-			Benutzername: <input type="text" name="user">
-
-			<br>
-
-			Passwort: <input type="text" name="psw">
+			<form action="login" method="post">
+			<label for="user">Benutzername:</label>
+			<input type="text" name="user">
 
 			<br>
+			<label for="psw">Passwort:</label>
+			<input type="password" name="psw">
+
+			<br /><br />
 
 			<input type="submit" name="senden" value="LogIn">
 

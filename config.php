@@ -30,7 +30,7 @@ $controller_liste = array(
 //Name der Links
 $namen_liste = array(	
 						"error 404",//0
-						"Start",//1
+						"Startseite",//1
 						"Kommt",//2
 						"Geht",//3
 						"LogIn",//4

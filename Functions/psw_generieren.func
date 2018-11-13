@@ -1,0 +1,39 @@
+<?php
+//Funktion generiert eine Passwort
+
+function psw_generieren()
+{
+
+//array fuer zahlen initialisieren
+$zahlen = array();
+
+for ($i = 0; $i < 10; $i++)
+{
+	$zahlen[$i] = $i;
+}
+
+//array fuer zahlen buchstaben
+$letter = array("a","b","c","d","e","f","g","h","i","k","m","n","p","r","s","t","u","w","x","y","z");
+
+//arrays mischen
+shuffle($zahlen);
+shuffle($letter);
+
+//arrays vereinigen
+$zahlenLetter = array_merge($zahlen,$letter);
+
+//nochmal mischen
+shuffle($zahlenLetter);
+
+//passwort zusammensetzen
+for ($i = 0; $i < 7; $i++)
+{
+	$psw = $;
+}
+
+//Ergebnis ausgeben
+return $psw;
+
+}
+
+?>

@@ -6,9 +6,7 @@ $inhalt_headline = "LogIn";
 
 $inhalt = 
 "
-<p>								
-LogIn hier
-<br />
+Loggen Sie sich hier in Ihren Account ein:
 ";
 
 ?>

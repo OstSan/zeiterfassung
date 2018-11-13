@@ -62,8 +62,8 @@ else
 	{
 		//Template-Datei nicht vorhanden! 
 		die("Template 'head' ist nicht vorhandern!");
-	}
-	
+}
+
 if (file_exists("Templates/template_body_kommt.tpl"))
 	{
 		$template_body = "Templates/template_body_kommt.tpl";
