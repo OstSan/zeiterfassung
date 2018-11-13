@@ -27,7 +27,7 @@
 			
 			<br /><br />
 			
-			<a class='a3' href='<?php echo SITE_ROOT."/".$links[4]; ?>' title='<?php echo $links_namen[4]; ?>'><?php echo $links_namen[4]; ?></a>
+			<a class='button_yellow' href='<?php echo SITE_ROOT."/".$links[4]; ?>' title='<?php echo $links_namen[4]; ?>'><?php echo $links_namen[4]; ?></a>
 			
 		</div>
 		<!-- Ende content-center -->
