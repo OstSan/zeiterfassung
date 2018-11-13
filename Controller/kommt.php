@@ -62,16 +62,16 @@ else
 	{
 		//Template-Datei nicht vorhanden! 
 		die("Template 'head' ist nicht vorhandern!");
-	}
-	
-if (file_exists("Templates/template_body_login.tpl"))
+}
+
+if (file_exists("Templates/template_body_kommt.tpl"))
 	{
-		$template_body = "Templates/template_body_login.tpl";
+		$template_body = "Templates/template_body_kommt.tpl";
 	}
 else
 	{
 		//Template-Datei nicht vorhanden! 
-		die("Template 'body_start' ist nicht vorhandern!");
+		die("Template 'body_kommt' ist nicht vorhandern!");
 	}
 	
 if (file_exists("Templates/template_footer.tpl"))
@@ -85,4 +85,9 @@ else
 	}
 
 
+        
+        
+        
+        
+        
 ?>
