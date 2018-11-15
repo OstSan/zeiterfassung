@@ -4,163 +4,218 @@
  * @author OstSan
  * @copyright 2018
  */
-/*
 
 
-INSERT
-$db->query("INSERT INTO mytable (FName, LName, Age, Gender) VALUES (:fname, :lname, :age, :gender)");  
-$db->bind(‘:fname’, ‘John’); usw...
-$db->execute(); 
-$db->lastInsertId(); OPTIONAL
+class MYSQL {
+	var $version	=	"0.1";
+	var $db;
+	var $dbname;
+	var $queries;
+	var $connected = FALSE;
+	var $duration;
+	var $wait;
+	var $debug = false;
+	
 
-SELECT
-Einzel SELECT
-$db->query("SELECT FName, LName, Age, Gender FROM mytable WHERE FName = :fname"); 
-$db->bind(‘:fname’, ‘Jenny’);  usw...
-$erg = $db->single(); <-- Array()
+	public function __construct($config) {
+		$this->db = mysqli_connect($config['server'],$config['user'],$config['pwd']);
+		#echo mysql_error();
+		if (!$this->db) {
+			$this->error("CONN.OPEN");
+		}
+		$this->dbname = $config['db'];
+		$this->queries = 0;
+		$this->wait = false;
+		
+		if (mysqli_select_db($this->db,$config['db']) === FALSE) {;
+			$this->error("DB.SELECT");
+		} else {
+			$this->connected = TRUE;
+		}
+	}
+	
+	function Query ($query) {
+		if (!$this->connected) {
+			$this->error("NO CONN");
+		} else {
+			list($usec, $sec) = explode(" ", microtime());
+			$starttime = ((float)$usec + (float)$sec);
+			$get = mysqli_query($this->db,$query);
+			if($this->debug) echo $query."<br />\n";
+			list($usec, $sec) = explode(" ", microtime());
+			$time2 = ((float)$usec + (float)$sec);
+			$this->duration += $time2-$starttime;
+			$this->queries++;
+	
+			return $get;
+		}
+	}
 
-Mehrfach SELECT
-$erg = $db->resultset(); <-- Multi Array()()
+	function Update ($values, $table, $add = "") {
+		if (!$this->connected) {
+			$this->error("NO CONN");
+		} else {
+			$query = "";
+			foreach ($values AS $key => $value) $query .= $key." = ".$value.", ";
+			$query = "UPDATE ".$table." SET ".substr($query, 0, strlen($query)-2)." ".$add;
+			$query = str_replace("%","%",$query);
+			$this->Query($query);
 
-
-$row = $db->rowCount(); <^ anzahl der zurückgegebenen zeilen
-
-UPDATE
-$db->query("UPDATE mytable SET FName = :fname, LName = :lname WHERE Age = :age");
-$db->bind(‘:fname’, ‘John’); usw...
-$db->execute();
-
-
-SELECT simple
-$erg = $db->select("mytable",array("FName","LName"),["WHERE x=y"],[0 für singel() , 1 für resultset]);
-$db->execute();
-
-UPDATE simple
-$db->update("mytable",array("FName"=>:fname),["WHERE x=Y"]);
-$db->bind(‘:fname’, ‘John’); usw...
-$db->execute();
-
-INSERT simple
-$db->insert("mytable",array("FNAME"=>":fname"),["WHERE x=y"]);
-$db->bind(‘:fname’, ‘John’); usw...
-$db->execute();
-*/
-
-class DB
-{
-
-    var $version = 1.0;
-    private $prefix;
-    private $dbh;
-    private $error;
-    private $stmt;
-
-    function __construct($db_config)
-    {
-        try {
-            $this->prefix = $db_config['prefix'];
-            $this->dbh = new PDO($db_config['art'] . ":host=" . $db_config['host'] .
-                ";dbname=" . $db_config['dbname'], $db_config['user'], $db_config['pwd'], $db_config['options']);
-        }
-        catch (PDOException $e) {
-            $this->error = $e->getMessage();
-        }
-    }
-
-    public function query($query)
-    {
-        $this->stmt = $this->dbh->prepare($query);
-    }
-    
-    public function select($table, $array, $where = '', $fetch = 0){
-        $query = "SELECT ";
-        foreach($array as $value){
-            $query .= $value." ,";
-        }
-        $query = substr($query,0,strlen($query)-2);
-        $query .= " FROM ".$this->prefix.$table;
-        if(!empty($where))$query .= " ".$where;
-        $this->query($query);
-        if($fetch==0){
-            return $this->single();
-        }else{
-            return $this->resultset();
-        }
-    }
-    
-    public function update($table, $array, $where = ''){
-        $query = "UPDATE ".$this->prefix.$table." ";
-        foreach($array as $key => $value){
-            $query .= $key ." = ". $value." ,";
-        }
-        $query = substr($query,0,strlen($query)-2);
-        if(!empty($where))$query .= " ".$where;
-        
-        $this->query($query);
-    }
-    
-    public function insert($table, $array, $where = ''){
-        $query = "INSERT INTO ".$this->prefix.$table." ";
-        foreach($array as $key=>$value){
-            $query .= $key ." = ".$value." ,";
-        }
-        $query = substr($query,0,strlen($query)-2);
-        if(!empty($where))$query .= " ".$where;
-        
-        $this->query($query);
-    }
-    
-    public function bind($param, $value, $type = null)
-    {
-        if (is_null($type)) {
-            switch (true) {
-                case is_int($value):
-                    $type = PDO::PARAM_INT;
-                    break;
-                case is_bool($value):
-                    $type = PDO::PARAM_BOOL;
-                    break;
-                case is_null($value):
-                    $type = PDO::PARAM_NULL;
-                    break;
-                default:
-                    $type = PDO::PARAM_STR;
-            }
-        }
-        $this->stmt->bindValue($param, $value, $type);
-    }
-
-    public function execute()
-    {
-        return $this->stmt->execute();
-    }
-
-    public function resultset()
-    {
-        $this->execute();
-        return $this->stmt->fetchAll(PDO::FETCH_BOTH);
-    }
-
-    public function single()
-    {
-        $this->execute();
-        return $this->stmt->fetch(PDO::FETCH_BOTH);
-    }
-
-    public function rowCount()
-    {
-        return $this->stmt->rowCount();
-    }
-
-    public function lastInsertId()
-    {
-        return $this->dbh->lastInsertId();
-    }
-
-    public function debugDumpParams()
-    {
-        return $this->stmt->debugDumpParams();
-    }
-
+			return mysqli_error($this->db);
+		}
+	}
+	
+	function FreeSelect ($query) {
+		if (!$this->connected) {
+			$this->error("NO CONN");
+		} else {
+			list($usec, $sec) = explode(" ", microtime());
+			$starttime = ((float)$usec + (float)$sec);
+			if($this->debug) echo $query."<br />\n";
+			$get = mysqli_query($this->db,$query);
+			list($usec, $sec) = explode(" ", microtime());
+			$time2 = ((float)$usec + (float)$sec);
+			$this->duration += $time2-$starttime;
+	
+			$this->queries++;
+	
+			return $get;
+		}
+	}
+	
+	function Select ($values, $table, $add = "", $array = 0) {
+		if (!$this->connected) {
+			$this->error("NO CONN");
+		} else {		
+			$query = "";
+			foreach ($values AS $value) $query .= $value.", ";
+			$query = "SELECT ".substr($query, 0, strlen($query)-2)." FROM `".$table."` ".$add;
+			$get = $this->FreeSelect($query);
+			if($array == 1) $get = $this->FetchArray($get);
+		
+			return $get;
+		}
+	}
+	
+	function Insert ($values, $table) {
+		if (!$this->connected) {
+			$this->error("NO CONN");
+		} else {
+			$query = ""; $inserts = ""; $keys = "";
+			foreach ($values AS $key => $value) {
+				$keys .= "`".$key."`, ";
+				$inserts .= "'".mysqli_real_escape_string($this->db,$value)."', ";
+			}
+			$query = "INSERT INTO `".$table."` (".substr($keys, 0, strlen($keys)-2).") VALUES (".substr($inserts, 0, strlen($inserts)-2).")";
+			$query = str_replace("%","%",$query);
+		
+			$this->Query($query);
+		
+			$return['err'] = mysqli_error($this->db);
+			$return['id'] = mysqli_insert_id($this->db);
+			return $return;
+		}
+	}
+	
+	function Delete ($table, $add = "") {
+		if (!$this->connected) {
+			$this->error("NO CONN");
+		} else {
+			$query = "";
+			if($add == "") $query = "TRUNCATE TABLE `".$table."`";
+			else $query = "DELETE FROM ".$table." ".$add."";
+			$this->Query($query);
+			
+			return mysqli_error($this->db);
+		}
+	}
+	
+	function FetchArray ($query) {
+		if (!$this->connected) {
+			$this->error("NO CONN");
+		} else {
+			$get = @mysqli_fetch_array($query);
+			return $get;
+		}
+	}
+	
+	function NumRows ($query) {
+		if (!$this->connected) {
+			$this->error("NO CONN");
+		} else {
+			$get = @mysqli_num_rows($query);
+			return $get;
+		}
+	}
+	
+	
+	function AffectedRows () {
+		if (!$this->connected) {
+			$this->error("NO CONN");
+		} else {
+			$get = @mysqli_affected_rows($this->db);
+			return $get;
+		}
+	}
+	
+	function FetchAssoc ($query) {
+		if (!$this->connected) {
+			$this->error("NO CONN");
+		} else {
+			$get = @mysqli_fetch_assoc($query);
+			return $get;
+		}
+	}
+	/*
+	function Optimize () {
+		if (!$this->connected) {
+			$this->error("NO CONN");
+		} else {
+			$result = mysql_list_tables($this->dbname);
+			$string = "";
+			while($get = mysql_fetch_row($result)) $string .= "`".$get[0]."`, ";
+			$this->Query("OPTIMIZE TABLE ".substr($string,0,-2));
+			$this->queries++;
+		}
+	}
+	*/
+	function Close () {
+		if (!$this->connected) {
+			$this->error("NO CONN");
+		} else {
+			mysqli_close($this->db);
+		}
+	}
+	
+	function error($error_type) {
+		switch ($error_type) {
+			case 'CONN.OPEN':
+				$text .= "Beim &Ouml;ffnen der Verbindung ist ein Fehler aufgetreten<br />";
+				break;
+	
+			case 'CONN.CLOSE':
+				$text .= "Beim Schlie�en der Verbindung ist ein Fehler aufgetreten<br />";
+				break;
+	
+			case 'NO CONN':
+				$text .= "Die angeforderte Aktion konnte nicht durchgef&uuml;hrt werden, da keine Verbindung zur Datenbank besteht!<br />";
+				break;
+	
+			case 'DB.SELECT':
+				$text .= "Beim Ausw&auml;hlen der Datenbank ist ein Fehler aufgetreten. Ev. ist die Datenbank nicht vorhanden<br />";
+				break;
+	
+			case 'QUERY FAILED':
+				$text .= "W&auml;hrend folgender Abfrage ist ein Fehler aufgetreten:\n\n".$this->Query."<br />";
+				break;
+	
+			default:
+				$text .= "Es ist folgender, unbekannter Fehler aufgetreten: ".$error_type."<br />";
+		}
+		if ($this->connected) {
+			$text .= "<br />mySQL meldet:<br />Fehler-Nummer: ".@mysqli_errno($this->db)."<br />Fehler-Beschreibung: ".@mysqli_error($this->db)."<br />";
+		}
+		echo $text."<br />";
+	}
 }
 ?>

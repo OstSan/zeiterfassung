@@ -5,16 +5,11 @@ $projekt_name = "zeiterfassung";
 
 //Datenbankkonfiguration
 /*
-$db_config['art']    = 'mysql';
-$db_config['host']   = '127.0.0.1';
-$db_config['user']   = 'user';
-$db_config['pwd']    = 'pwd';
-$db_config['dbname'] = 'datenbankname';
-$db_config['prefix'] = '';
-$db_config['options'] = array(  
-PDO::ATTR_PERSISTENT => true,  
-PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION  
-);*/ 
+$config['server'] = '127.0.0.1';
+$config['user'] = "root";
+$config['pwd'] = "";
+$config['db'] = "";
+*/ 
 
 //erlaubte Seiten
 $controller_liste = array(
